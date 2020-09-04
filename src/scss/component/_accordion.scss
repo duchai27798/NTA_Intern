@@ -1,0 +1,27 @@
+@import '../utils/variables';
+
+.accordion-default {
+    .accordion-item {
+        border-radius: 0;
+        border: 0;
+
+        .accordion-item-header {
+            border-bottom: 0;
+
+            .btn-collapse {
+                height: 50px;
+                padding: 0 20px;
+                background-color: $cl_pattens_blue;
+                border-radius: 0;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .accordion-body {
+            padding: 30px 30px 30px 35px;
+        }
+    }
+}
