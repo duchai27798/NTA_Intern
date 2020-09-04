@@ -1,4 +1,4 @@
-$sizes: 16, 24, 32, 36, 42;
+$sizes: 14, 16, 18, 20, 22, 24, 28, 32, 36, 42;
 
 @each $size in $sizes {
     .font-#{$size} {

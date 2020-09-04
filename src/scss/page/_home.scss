@@ -1,0 +1,96 @@
+@import '../utils/variables';
+
+.home {
+    .header {
+        .header-title {
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            .icon {
+                width: 80px;
+            }
+        }
+
+        .header-nav {
+            border-top: 1px solid $cl_whisper;
+            border-bottom: 1px solid $cl_whisper;
+        }
+
+        .header-social-network {
+            .fa-facebook-square {
+                color: $cl_dodger_blue;
+            }
+
+            .fa-google-plus-g {
+                color: $cl_cinnabar;
+            }
+
+            .fa-youtube {
+                color: $cl_red;
+            }
+        }
+    }
+
+    .banner {
+        background: url('../img/hospital.jpg') center no-repeat;
+        background-size: cover;
+        height: 200px;
+    }
+
+    .content {
+        .left-content {
+            min-width: 350px;
+            //width: 30%;
+
+            .form-data {
+                background-color: $cl_pattens_blue;
+                padding: 20px 30px;
+
+                .title {
+                    position: relative;
+                    padding-bottom: 5px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        height: 3px;
+                        width: 70px;
+                        background-color: $cl_summer_sky;
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+
+                .btn-submit {
+                    height: 50px;
+                    width: 150px;
+                }
+            }
+        }
+
+        .right-content {
+            .row {
+                margin: -10px;
+            }
+
+            [class^="col-"] {
+                padding: 10px;
+            }
+        }
+    }
+
+    .footer {
+        background-color: $cl_malibu;
+
+        .social-network {
+            i {
+                width: 30px;
+            }
+        }
+
+        .license {
+            height: 50px;
+            border-top: 1px solid $cl_white;
+        }
+    }
+}

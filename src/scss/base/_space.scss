@@ -1,0 +1,37 @@
+$widths: 10px, 15px, 20px, 25px, 30px;
+
+@each $width in $widths {
+    /*  Generate Padding  */
+    .pl-#{$width} {
+        padding-left: $width;
+    }
+
+    .pr-#{$width} {
+        padding-right: $width;
+    }
+
+    .pt-#{$width} {
+        padding-top: $width;
+    }
+
+    .pb-#{$width} {
+        padding-bottom: $width;
+    }
+
+    /*  Generate Margin  */
+    .ml-#{$width} {
+        margin-left: $width;
+    }
+
+    .mr-#{$width} {
+        margin-right: $width;
+    }
+
+    .mt-#{$width} {
+        margin-top: $width;
+    }
+
+    .mb-#{$width} {
+        margin-bottom: $width;
+    }
+}

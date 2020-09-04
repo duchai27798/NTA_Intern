@@ -1,0 +1,16 @@
+.container {
+    @media screen and (min-width: 1600px) {
+        width: 85vw;
+        max-width: 1600px;
+    }
+}
+
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+[class^="col-"] {
+    padding-right: 10px;
+    padding-left: 10px;
+}
