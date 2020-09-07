@@ -1,0 +1,56 @@
+.header {
+    border-bottom: 1px solid #000000;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.header .icon {
+    height: 50px;
+}
+
+.header .fa-cart-plus {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.header .search {
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #000000;
+}
+
+.header .badge {
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    border-radius: 50%;
+    background-color: #2f92f9;
+    color: #ffffff;
+}
+
+.item-list {
+    margin-top: 40px;
+}
+
+.item-list img {
+    height: 250px;
+    width: 250px;
+}
+
+.table thead {
+    background-color: #ccaaa1;
+}
+
+.table thead th {
+    border-bottom: 0;
+}
+
+.table tbody tr .product img {
+    width: 120px;
+    height: 120px;
+}
+
+.table tbody tr .quantity,
+.table tbody tr .btn-remove i {
+    font-size: 18px;
+}
