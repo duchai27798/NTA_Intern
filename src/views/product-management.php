@@ -1,4 +1,5 @@
 <div class="container mt-5">
+    <h2 class="text-uppercase text text-primary text-center mt-5 mb-5">product Management</h2>
     <button class="btn btn-info" id="create-product">create Product</button>
     <table class="table table-striped mt-3">
         <thead>
@@ -23,7 +24,7 @@
                         <td class='align-middle'>$product->price</td>
                         <td class='align-middle'>$product->urlImg</td>
                         <td class='align-middle'>
-                            <button class='btn btn-danger'>Delete</button>
+                            <button class='btn btn-danger' onclick='deleteProduct($product->id)'>Delete</button>
                             <button class='btn btn-primary ml-2' onclick='editProduct($product->id)'>Edit</button>
                         </td>
                     </tr>
@@ -58,6 +59,20 @@
             success: function(data) {
                 $('#product-editor-dialog').html(data);
                 $('#product-editor-dialog').modal('show');
+            }
+        })
+    }
+
+    function deleteProduct(id) {
+        $.ajax({
+            url: '/delete-product',
+            method: 'post',
+            dataType: 'json',
+            data: { productId: id },
+            success: function(data) {
+                if (data) {
+                    location.reload();
+                }
             }
         })
     }

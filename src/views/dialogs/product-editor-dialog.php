@@ -7,6 +7,11 @@
         <div class="modal-body">
             <div class="alert alert-danger d-none" id="error-message"></div>
             <form id="product-form">
+                <?php
+                if (isset($product)) {
+                    echo "<input type='number' name='id' value='$product->id' class='d-none'/>";
+                }
+                ?>
                 <div class="form-group mt-4">
                     <input type="text" class="form-control" name="name" value="<?php echo isset($product) ? $product->name : null ?>" placeholder="Product Name">
                 </div>
@@ -25,16 +30,19 @@
 </div>
 
 <script>
+    /* listen when form is submitted */
     $('#product-form').submit(function(e) {
         e.preventDefault();
 
+        /* get form data */
         let x = $("#product-form").serializeArray();
-        let formData = { isSubmit: true };
+        let formData = {};
 
         $.each(x, function(i, field) {
             formData[field.name] = field.value;
         });
 
+        /* validate form when click submit  */
         $.ajax({
             url: '/validate-form',
             method: 'post',
@@ -42,19 +50,30 @@
             dataType: 'json',
             success: function(data) {
                 if (data.code === 404) {
+                    /* show error validation */
                     $('#error-message').addClass('d-block');
                     $('#error-message').html(`<ul class="mb-0">${data.message}</ul>`);
                 } else {
                     $('#error-message').removeClass('d-block');
-                    createNewProduct(data);
+
+                    /* if is existed then update product else create new product */
+                    if (formData['id']) {
+                        updateProduct(data);
+                    } else {
+                        createNewProduct(data);
+                    }
                 }
             }
         })
     })
 
+    /**
+     * Call ajax create new product
+     * @param data
+     */
     function createNewProduct(data) {
         $.ajax({
-            url: '/create-new-project',
+            url: '/create-new-product',
             method: 'post',
             data: data,
             success: function(data) {
@@ -67,15 +86,42 @@
         })
     }
 
+    /**
+     * Call ajax update product
+     * @param data
+     */
     function updateProduct(data) {
         $.ajax({
-            url: '/update-project',
+            url: '/update-product',
             method: 'post',
             data: data,
+            dataType: 'json',
             success: function(data) {
+                console.log(data)
                 if (data)
                 {
-                    $('#product-editor-dialog').modal('hide');
+                    $('#product-editor-dialog-dialog').modal('hide');
+                    location.reload();
+                }
+            }
+        })
+    }
+
+    /**
+     * Call ajax delete product
+     * @param data
+     */
+    function deleteProduct(data) {
+        $.ajax({
+            url: '/delete-product',
+            method: 'post',
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                console.log(data)
+                if (data)
+                {
+                    $('#product-editor-dialog-dialog').modal('hide');
                     location.reload();
                 }
             }

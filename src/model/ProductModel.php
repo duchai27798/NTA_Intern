@@ -54,13 +54,27 @@ class ProductModel extends Model
 
     public function updateProduct($product)
     {
-        $sql = 'update product set product_name = :name, price = :price, url_img = :urlImg when id = :id';
+        $sql = 'update product set product_name = :name, price = :price, url_img = :urlImg where id = :id';
 
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':id', $product['id'], PDO::PARAM_STR);
         $statement->bindParam(':name', $product['name'], PDO::PARAM_STR);
         $statement->bindParam(':price', $product['price'], PDO::PARAM_INT);
         $statement->bindParam(':urlImg', $product['urlImg'], PDO::PARAM_STR);
+
+        if ($statement->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function deleteProduct($productId)
+    {
+        $sql = 'delete from product where id = :id';
+
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':id', $productId, PDO::PARAM_STR);
 
         if ($statement->execute()) {
             return true;

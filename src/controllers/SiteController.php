@@ -26,4 +26,14 @@ class SiteController extends Controller
 
         return $this->render('product-management', $params);
     }
+
+    public function cartDetail()
+    {
+        $params = [];
+
+        $productModel = new ProductModel();
+        $params['listProduct'] = $productModel->getAllProduct();
+
+        return $this->render('cart-detail', $params);
+    }
 }
