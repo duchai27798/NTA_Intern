@@ -54,3 +54,8 @@
 .table tbody tr .btn-remove i {
     font-size: 18px;
 }
+
+.disabled-half {
+    opacity: 0.5;
+    pointer-events: none;
+}

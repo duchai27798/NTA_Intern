@@ -1,0 +1,21 @@
+{
+    "name": "nguyenhai/nta_intern",
+    "authors": [
+        {
+            "name": "hainguyen",
+            "email": "hainguyen27798@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "scripts": {
+        "start-server": "php -S localhost:8080 -t src/"
+    },
+    "require": {
+        "ext-pdo": "*",
+        "ext-json": "*"
+    }
+}
